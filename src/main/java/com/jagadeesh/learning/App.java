@@ -4,6 +4,7 @@ import com.jagadeesh.learning.config.BeanConfigurations;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -45,6 +46,27 @@ public class App
         ApplicationContext context1 = new ClassPathXmlApplicationContext("beans.xml");
         var vehicle1= context1.getBean("benz",Vehicle.class);
         log.info(vehicle1.getName());
+
+
+
+        ApplicationContext context2 = new AnnotationConfigApplicationContext(BeanConfigurations.class);
+        var car5 = context2.getBean("audi",Car.class);
+        var car6 = context2.getBean("audi",Car.class);
+        var car7 = context2.getBean("benz",Car.class);
+        var car8 = context2.getBean("ferrari",Car.class);
+        var car9 = context2.getBean(Car.class);
+        var car10 = context2.getBean(Car.class);
+        log.info("Hashcode of the object is {}",car5.hashCode());
+        log.info("Hashcode of the object is {}",car6.hashCode());
+        log.info("Hashcode of the object is {}",car7.hashCode());
+        log.info("Hashcode of the object is {}",car8.hashCode());
+        log.info("Hashcode of the object is {}",car9.hashCode());
+        log.info("Hashcode of the object is {}",car10.hashCode());
+
+
+
+
+
 
 
 

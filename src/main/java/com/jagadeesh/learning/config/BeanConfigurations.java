@@ -1,10 +1,8 @@
 package com.jagadeesh.learning.config;
 
 import com.jagadeesh.learning.Car;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.*;
 
 @Configuration
 @ComponentScan(basePackages = "com.jagadeesh.learning")
@@ -36,6 +34,7 @@ public class BeanConfigurations {
         return new Car("Benz Z");
     }
     @Primary
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
     @Bean("ferrari")
     Car car3()
     {
